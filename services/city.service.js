@@ -1,7 +1,7 @@
 import { apiUrl } from 'config';
 import { fetchWrapper } from 'helpers';
 
-export const userService = {
+export const cityService = {
     getAll,
     getById,
     create,
@@ -9,25 +9,25 @@ export const userService = {
     delete: _delete
 };
 
-const baseUrl = `${apiUrl}/users`;
+const baseUrl = `${apiUrl}/cities`;
 
 function getAll() {
     return fetchWrapper.get(baseUrl);
 }
 
-function getById(id) {
-    return fetchWrapper.get(`${baseUrl}/${id}`);
+function getById(cityId) {
+    return fetchWrapper.get(`${baseUrl}/${cityId}`);
 }
 
 function create(params) {
     return fetchWrapper.post(baseUrl, params);
 }
 
-function update(id, params) {
-    return fetchWrapper.put(`${baseUrl}/${id}`, params);
+function update(cityId, params) {
+    return fetchWrapper.put(`${baseUrl}/${cityId}`, params);
 }
 
 // prefixed with underscored because delete is a reserved word in javascript
-function _delete(id) {
-    return fetchWrapper.delete(`${baseUrl}/${id}`);
+function _delete(cityId) {
+    return fetchWrapper.delete(`${baseUrl}/${cityId}`);
 }
